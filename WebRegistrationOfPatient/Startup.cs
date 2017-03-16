@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebRegistrationOfPatient.Repositories;
+using WebRegistrationOfPatient.Repositories.Interfaces;
 
 namespace WebRegistrationOfPatient
 {
@@ -29,6 +31,8 @@ namespace WebRegistrationOfPatient
         {
             // Add framework services.
             services.AddMvc();
+
+            services.Configure<Configuration>(Configuration.GetSection("ConnectionStrings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +41,23 @@ namespace WebRegistrationOfPatient
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
