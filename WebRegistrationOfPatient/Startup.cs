@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +18,12 @@ namespace WebRegistrationOfPatient
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            //using (var db = new PatientContext())
+            //{
+            //    db.Database.EnsureCreated();
+            //    db.Database.Migrate();
+            //}
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -29,8 +31,11 @@ namespace WebRegistrationOfPatient
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<PatientContext>();
             // Add framework services.
             services.AddMvc();
+
+            services.AddSingleton<IPatientRepository, PatientRepository>();
 
             services.Configure<Configuration>(Configuration.GetSection("ConnectionStrings"));
         }
