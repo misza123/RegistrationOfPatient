@@ -1,0 +1,56 @@
+{
+  "name": "web-registration-for-patient",
+  "version": "0.0.1",
+  "description": "Web registration for patient front end",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com:Michal.Mielcz/RegistrationOfPatient.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/Michal.Mielcz/RegistrationOfPatient/issues"
+  },
+  "homepage": "https://gitlab.com/Michal.Mielcz/RegistrationOfPatient#README",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.24.0",
+    "chai": "^3.5.0",
+    "connect-livereload": "^0.6.0",
+    "css-loader": "^0.27.3",
+    "express": "^4.15.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-contrib-copy": "^0.1.2",
+    "gulp-express": "^0.3.5",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-mocha": "^4.1.0",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-webpack": "^1.5.0",
+    "html-loader": "^0.4.5",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.14.0",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "bulma": "^0.4.0",
+    "font-awesome": "^4.7.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  }
+}
