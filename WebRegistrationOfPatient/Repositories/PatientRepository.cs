@@ -25,6 +25,7 @@ namespace WebRegistrationOfPatient.Repositories
 
         public IEnumerable<Patient> GettAll()
         {
+#if DEBUG
             _patientContext.Patients.Add(new Patient()
             {
                 Name = "name",
@@ -33,6 +34,7 @@ namespace WebRegistrationOfPatient.Repositories
                 Address = null
             });
             _patientContext.SaveChanges();
+#endif
 
             var ret = _patientContext.Patients.ToList();
             return ret;
