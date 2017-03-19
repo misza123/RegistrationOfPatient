@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Options;
 using WebRegistrationOfPatient.Models;
@@ -8,53 +9,67 @@ namespace WebRegistrationOfPatient.Repositories
 {
     public class PatientRepository : IPatientRepository
     {
-        private readonly PatientContext _patientContext;
         private readonly Configuration _configuration;
 
-        public PatientRepository(PatientContext patientContext, IOptions<Configuration> configuration)
+        public PatientRepository(IOptions<Configuration> configuration)
         {
-            _patientContext = patientContext;
             _configuration = configuration.Value;
         }
 
         public void Add(Patient patient)
         {
-            _patientContext.Patients.Add(patient);
-            _patientContext.SaveChanges();
+            using (var patientContext = new PatientContext())
+            {
+                patientContext.Patients.Add(patient);
+                patientContext.SaveChanges();
+            }
         }
 
         public IEnumerable<Patient> GettAll()
         {
 #if DEBUG
-            _patientContext.Patients.Add(new Patient()
+            using (var patientContext = new PatientContext())
             {
-                Name = "name",
-                PersonalIdentityNumber = "12id",
-                Surname = "surname",
-                Address = null
-            });
-            _patientContext.SaveChanges();
+                patientContext.Patients.Add(new Patient()
+                {
+                    Name = "name",
+                    PersonalIdentityNumber = Guid.NewGuid().ToString(),
+                    Surname = "surname",
+                    Address = null
+                });
+                patientContext.SaveChanges();
+            }
 #endif
-
-            var ret = _patientContext.Patients.ToList();
-            return ret;
+            using (var patientContext = new PatientContext())
+            {
+                return patientContext.Patients.ToList();
+            }
         }
 
         public Patient Find(int id)
         {
-            return _patientContext.Patients.FirstOrDefault(x => x.Id == id);
+            using (var patientContext = new PatientContext())
+            {
+                return patientContext.Patients.FirstOrDefault(x => x.Id == id);
+            }
         }
 
         public void Remove(int id)
         {
-            var patientToRemove = _patientContext.Patients.FirstOrDefault(x => x.Id == id);
-            _patientContext.Patients.Remove(patientToRemove);
-            _patientContext.SaveChanges();
+            using (var patientContext = new PatientContext())
+            {
+                var patientToRemove = patientContext.Patients.FirstOrDefault(x => x.Id == id);
+                patientContext.Patients.Remove(patientToRemove);
+                patientContext.SaveChanges();
+            }
         }
 
         public void Update(Patient patient)
         {
-            _patientContext.Patients.Update(patient);
+            using (var patientContext = new PatientContext())
+            {
+                patientContext.Patients.Update(patient);
+            }
         }
     }
 }

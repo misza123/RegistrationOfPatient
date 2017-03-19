@@ -18,7 +18,6 @@
         "Microsoft.AspNetCore.StaticFiles": "1.0.2",
         "Microsoft.EntityFrameworkCore": "1.1.1",
         "Microsoft.EntityFrameworkCore.Design": "1.1.1",
-        "Microsoft.EntityFrameworkCore.Sqlite": "1.1.1",
         "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1",
         "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.1",
         "Microsoft.Extensions.Configuration": "1.1.1",
