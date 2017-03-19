@@ -16,14 +16,10 @@ namespace WebRegistrationOfPatient
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+                .AddEnvironmentVariables()
+                ;
 
-            //using (var db = new PatientContext())
-            //{
-            //    db.Database.EnsureCreated();
-            //    db.Database.Migrate();
-            //}
+            Configuration = builder.Build();
         }
 
         public IConfigurationRoot Configuration { get; }

@@ -7,7 +7,7 @@ namespace WebRegistrationOfPatient.Repositories
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(Configuration.DefaultConnection);
+            optionsBuilder.UseSqlServer(Configuration.DefaultConnection);
         }
 
         public DbSet<Patient> Patients { get; set; }
