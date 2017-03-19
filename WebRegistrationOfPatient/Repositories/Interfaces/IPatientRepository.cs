@@ -1,19 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WebRegistrationOfPatient.Models;
 
 namespace WebRegistrationOfPatient.Repositories.Interfaces
 {
-    public interface IPatientRepository
-    {
-        void Add(Patient patient);
+  public interface IPatientRepository
+  {
+    void Add(Patient patient);
 
-        IEnumerable<Patient> GettAll();
+    IEnumerable<Patient> GettAll();
 
-        Patient Find(int id);
+    Patient Find(int id);
 
-        void Remove(int id);
+    void Remove(int id);
 
-        void Update(Patient patient);
-    }
+    void Update(Patient patient);
+  }
 }

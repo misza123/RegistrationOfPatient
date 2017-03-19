@@ -2,11 +2,11 @@
 
 namespace WebRegistrationOfPatient.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return Redirect(Url.Content("~/app/index.html"));
-        }
+      return Redirect(Url.Content("~/app/index.html"));
     }
+  }
 }
