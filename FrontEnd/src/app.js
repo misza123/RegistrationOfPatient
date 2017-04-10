@@ -8,6 +8,7 @@ import values from './values';
 import routes from './routes';
 
 import 'bulma';
+import 'font-awesome/scss/font-awesome.scss';
 
 const app = angular.module('patient.main', [ngRoute, components, services, values]);
 
