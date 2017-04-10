@@ -12,6 +12,8 @@ app.get('/', (req, res) => {
     res.sendFile('.tmp/index.html', {root: path.join(__dirname, '..')});
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+    process.stdout.write('Development server listening on port 3000\r\n');
+});
 
 module.exports.app = exports.app = app;

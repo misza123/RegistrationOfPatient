@@ -17,11 +17,11 @@ module.exports = {
             test: /\.(scss|sass)$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
+                use: ['css-loader', 'postcss-loader', 'sass-loader']
             })
         }, {
             test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-            loader: 'file-loader'
+            loader: 'url-loader'
         }, {
             test: /\.(png|jpg)$/,
             loader: 'file-loader'
@@ -29,6 +29,5 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('app.css')
-    ],
-    devtool: 'source-map'
+    ]
 };
