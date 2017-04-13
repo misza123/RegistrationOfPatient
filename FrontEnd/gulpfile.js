@@ -83,7 +83,7 @@ gulp.task('build-inline-html', () => {
             png: $.inlineImageHtml,
             jpg: $.inlineImageHtml
         }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest(__dirname + '/../WebRegistrationOfPatient/wwwroot/app'));
 });
 
 gulp.task('package', () => {
