@@ -1,4 +1,4 @@
-import template from './loginRegister.html';
+import template from './login-register.html';
 
 const component = {
     template

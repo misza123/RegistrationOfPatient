@@ -1,0 +1,17 @@
+<div class="modal" ng-class="{'is-active': $ctrl.active}">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">
+                Wystąpił błąd
+            </p>
+            <button class="delete" ng-click="$ctrl.dismiss()"></button>
+        </header>
+
+        <section class="modal-card-body">{{$ctrl.message}}</section>
+
+        <footer class="modal-card-foot">
+            <button class="button is-danger" ng-click="$ctrl.dismiss()">OK</button>
+        </footer>
+    </div>
+</div>

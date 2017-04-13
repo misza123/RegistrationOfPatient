@@ -1,12 +1,19 @@
 <section class="hero is-success is-bold">
+    <error active="$ctrl.isError" message="$ctrl.error"></error>
     <div class="hero-head">
         <header class="nav has-shadow">
             <div class="container">
                 <div class="nav-left">
                     <a class="nav-item" href="#!/">Healing Potion</a>
                 </div>
-                <div class="nav-center nav-menu">
+                <div class="nav-center nav-menu" ng-if="$ctrl.isLoggedIn()">
                     <a class="nav-item" ng-class="{'is-active': $ctrl.isRouteActive('/')}" href="#!/">Strona główna</a>
+                </div>
+                <div class="nav-right" ng-if="$ctrl.isLoggedIn()">
+                    <p class="nav-item">
+                        Zalogowany jako {{$ctrl.getUser().username}}.
+                        <button class="button is-small is-dark" ng-class="{'is-loading': $ctrl.isLoading}" ng-click="$ctrl.logout()">Wyloguj</button>
+                    </p>
                 </div>
             </div>
         </header>
