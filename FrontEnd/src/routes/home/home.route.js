@@ -1,7 +1,5 @@
-import homeTemplate from './home.html';
+import template from './home.html';
 
-const homeConfig = {
-    template: homeTemplate
+export default {
+    template
 };
-
-export default homeConfig;

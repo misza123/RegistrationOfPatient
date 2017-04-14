@@ -1,9 +1,9 @@
 import angular from 'angular';
 
-import exampleService from './example/example.service';
+import AuthService from './auth-service/auth.service';
 
 const app = angular.module('patient.services', []);
 
-app.service('exampleService', exampleService);
+app.service('AuthService', AuthService);
 
 export default app.name;
