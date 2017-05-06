@@ -62,10 +62,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.txt" />
-    <None Include="WebRegistrationOfPatient.database.publish.xml" />
+    <None Include="azurePROD.publish.xml" />
+    <None Include="localDatabase.publish.xml" />
+    <None Include="azureDEV.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Patients.sql" />
     <Build Include="Tables\Addresses.sql" />
+    <Build Include="Tables\Employees.sql" />
+    <Build Include="Tables\EmployeeTypes.sql" />
+    <Build Include="Tables\EmployeeWorkHours.sql" />
+    <Build Include="Tables\Rooms.sql" />
+    <Build Include="Tables\RoomTypes.sql" />
+    <Build Include="Tables\PatientsVisits.sql" />
+    <Build Include="Tables\VisitTypes.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\UsersGroups.sql" />
+    <Build Include="Tables\Groups.sql" />
+    <Build Include="Tables\Permissions.sql" />
+    <Build Include="Tables\GroupPermissions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="WebRegistrationOfPatient.database.refactorlog" />
   </ItemGroup>
 </Project>

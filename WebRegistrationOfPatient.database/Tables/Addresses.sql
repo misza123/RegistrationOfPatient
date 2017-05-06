@@ -6,7 +6,6 @@
       [Street] VARCHAR(128) ,
       [HouseNumber] VARCHAR(8) ,
       [FlatNumber] VARCHAR(8) ,
-      [PostalCode] VARCHAR(6)
-        CONSTRAINT [PK_Id_Addresses] PRIMARY KEY ( [Id] ),
-	 
+      [PostalCode] VARCHAR(6) NOT NULL
+      CONSTRAINT [PK_Id_Addresses] PRIMARY KEY ( [Id] )	 
     );

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Groups]
+(
+	[Id] INT NOT NULL ,
+	[Name] NVARCHAR(255) NOT NULL,
+	CONSTRAINT [PK_Id_Groups] PRIMARY KEY ([Id])
+)
