@@ -8,9 +8,9 @@
 
     public string Street { get; set; }
 
-    public string House { get; set; }
+    public string HouseNumber { get; set; }
 
-    public string Flat { get; set; }
+    public string FlatNumber { get; set; }
 
     public string PostalCode { get; set; }
   }
