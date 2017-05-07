@@ -10,7 +10,7 @@ namespace WebRegistrationOfPatient
       var host = new WebHostBuilder()
         .UseKestrel()
         .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseIISIntegration()
+        .UseKestrel()
         .UseStartup<Startup>()
         .UseApplicationInsights()
         .Build();
